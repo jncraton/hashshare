@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title></title>
+    <style></style>
+  </head>
+
+  <body>
+    <main>
+    </main>
+    <script>
+      let observer = new MutationObserver(mutations => {
+        console.log(mutations)
+
+        let data = {}
+
+        mutations.forEach(mutation => {
+          console.log(mutation.addedNodes)
+          console.log(document.querySelector('main').innerHTML)
+        })
+      })
+
+      observer.observe(document.querySelector('main'), {subtree: true, childList: true, attributes: true, attributeFilter: ['value', 'checked', 'selected']})
+
+      document.querySelector('main').textContent = 'Hello, world!'
+      document.querySelector('main').textContent = 'Hello again, world!'
+
+      let p = document.createElement('p')
+      p.textContent = "My first paragraph."
+
+      document.querySelector('main').append(p)
+
+      p.textContent += " The second sentence"
+
+      let input = document.createElement('input')
+      input.value = "1995"
+      document.querySelector('main').append(input)
+
+      setTimeout(() => input.value = "1996", 100)
+      setTimeout(() => input.type = "text", 100)
+      setTimeout(() => p.append(document.createElement('hr')), 100)
+      
+    </script>
+  </body>
+</html>
