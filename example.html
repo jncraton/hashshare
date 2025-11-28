@@ -6,43 +6,12 @@
 
     <title></title>
     <style></style>
+    <script src="autoshare.js" defer></script>
   </head>
 
   <body>
     <main>
+      <textarea id=text autoshare-value></textarea>
     </main>
-    <script>
-      let observer = new MutationObserver(mutations => {
-        console.log(mutations)
-
-        let data = {}
-
-        mutations.forEach(mutation => {
-          console.log(mutation.addedNodes)
-          console.log(document.querySelector('main').innerHTML)
-        })
-      })
-
-      observer.observe(document.querySelector('main'), {subtree: true, childList: true, attributes: true, attributeFilter: ['value', 'checked', 'selected']})
-
-      document.querySelector('main').textContent = 'Hello, world!'
-      document.querySelector('main').textContent = 'Hello again, world!'
-
-      let p = document.createElement('p')
-      p.textContent = "My first paragraph."
-
-      document.querySelector('main').append(p)
-
-      p.textContent += " The second sentence"
-
-      let input = document.createElement('input')
-      input.value = "1995"
-      document.querySelector('main').append(input)
-
-      setTimeout(() => input.value = "1996", 100)
-      setTimeout(() => input.type = "text", 100)
-      setTimeout(() => p.append(document.createElement('hr')), 100)
-      
-    </script>
   </body>
 </html>
