@@ -14,7 +14,7 @@
     location.hash = btoa(JSON.stringify(data))
   }
     
-  document.querySelectorAll('[autoshare-value]').forEach(el => {
+  document.querySelectorAll('[hashshare-value]').forEach(el => {
     el.value = data[el.id] ?? ''
 
     el.addEventListener('input', () => {
