@@ -18,3 +18,15 @@ The following implements a simple paste-bin like application:
 ### URL Hash
 
 Data is stored in the [URL hash](https://en.wikipedia.org/wiki/URI_fragment).
+
+The data is currently stored in the following format.
+
+```json
+{
+  "id1": "value1",
+  "id2": "value2",
+  "id3": "value3"
+}
+```
+
+This JSON string is then base64 encoded and used as the entire URL fragment.
