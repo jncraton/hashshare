@@ -1,17 +1,46 @@
-;(() => {
+;(async () => {
+  async function encode(text) {
+    let stream = new Blob([text]).stream()
+
+    stream = stream.pipeThrough(new CompressionStream('deflate-raw'))
+    const res = await new Response(stream)
+
+    const blob = await res.blob()
+    const buffer = await blob.arrayBuffer()
+
+    return ';' + btoa(String.fromCharCode(...new Uint8Array(buffer)))
+  }
+
+  async function decode(text) {
+    if (text[0] != ';') return atob(text)
+
+    text = text.slice(1)
+
+    const binary = Uint8Array.from(atob(text), c => c.charCodeAt(0))
+
+    let stream = new Blob([binary]).stream()
+
+    stream = stream.pipeThrough(new DecompressionStream('deflate-raw'))
+
+    const res = await new Response(stream)
+    const blob = await res.blob()
+
+    return await blob.text()
+  }
+
   // Load inital data if present
   let data = {}
 
   try {
-    data = JSON.parse(atob(location.hash.slice(1)))
+    data = JSON.parse(await decode(location.hash.slice(1)))
   } catch (e) {
     console.warn(e)
   }
 
-  const setData = (id, value) => {
+  const setData = async (id, value) => {
     // Set data and update URL hash
     data[id] = value
-    location.hash = btoa(JSON.stringify(data))
+    location.hash = await encode(JSON.stringify(data))
   }
 
   document.querySelectorAll('[hashshare]').forEach(el => {
