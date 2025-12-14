@@ -32,7 +32,13 @@
   let data = {}
 
   try {
-    data = JSON.parse(await decode(location.hash.slice(1)))
+    let json = await decode(location.hash.slice(1))
+
+    // Add curly braces as needed
+    if (json[0] != '{') json = '{' + json
+    if (json.slice(-1) != '}') json = json + '}'
+
+    data = JSON.parse(json)
   } catch (e) {
     console.warn(e)
   }
@@ -40,7 +46,10 @@
   const setData = async (id, value) => {
     // Set data and update URL hash
     data[id] = value
-    location.hash = await encode(JSON.stringify(data))
+    let json = JSON.stringify(data)
+    // We will always have an outer object, so strip `{` and `}`
+    let stripped_json = json.slice(1, -1)
+    location.hash = await encode(stripped_json)
   }
 
   document.querySelectorAll('[hash-share]').forEach(el => {
