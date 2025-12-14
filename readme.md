@@ -32,4 +32,4 @@ The data is currently stored in the following format.
 }
 ```
 
-This JSON string is then compressed using `deflate-raw` from [CompressionStream](https://developer.mozilla.org/en-US/docs/Web/API/CompressionStream) and base64 encoded. A `;` is prepended to the data to provide some indication of its format.
+This JSON string is then compressed using `deflate-raw` from [CompressionStream](https://developer.mozilla.org/en-US/docs/Web/API/CompressionStream) and base64 encoded. A `;` is prepended to the data to provide some indication of its format. Bcause the JSON string will always be in enclosed in `{` and `}`, these are optional to save two bytes.
