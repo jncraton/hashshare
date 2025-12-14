@@ -7,7 +7,7 @@ lint:
 format:
 	npx prettier@3.6.2 --write .
 
-test: index.html lint
+test: example.html lint
 	pytest --browser firefox --browser chromium
 
 hashshare.min.js: hashshare.js
