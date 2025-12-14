@@ -49,7 +49,8 @@
     let json = JSON.stringify(data)
     // We will always have an outer object, so strip `{` and `}`
     let stripped_json = json.slice(1, -1)
-    location.hash = await encode(stripped_json)
+    const newHash = await encode(stripped_json)
+    history.replaceState(null, '', `${location.pathname}${location.search}#${newHash}`)
   }
 
   document.querySelectorAll('[hash-share]').forEach(el => {
