@@ -10,3 +10,6 @@ format:
 hashshare.min.js: hashshare.js
 	npx uglify-js@3.19.3 --compress --mangle -- $< > $@
 	wc -c $@
+
+clean:
+	rm -f hashshare.min.js
