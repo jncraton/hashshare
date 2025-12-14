@@ -14,7 +14,7 @@ def root(page: Page):
 def test_page_title(root):
     expect(root).to_have_title("Pastebin Example")
 
-def test_page_content(page: Page):
+def test_page_content_uncompressed_json(page: Page):
     page.goto(f"{file_url}#eyJ0ZXh0IjoiSGVsbG8sIHdvcmxkIn0=")
     expect(page.locator('textarea')).to_have_value("Hello, world")
 
