@@ -11,7 +11,7 @@ A JS microlibrary to allow simple local-first apps to share state via URL hashes
 The following implements a simple paste-bin like application (see [example.html](example.html)):
 
 ```html
-<textarea id="text" hashshare></textarea>
+<textarea id="text" hash-share></textarea>
 ```
 
 This is example can also be [used live](https://jncraton.github.io/hashshare/example.html).

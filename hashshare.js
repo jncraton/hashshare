@@ -43,7 +43,7 @@
     location.hash = await encode(JSON.stringify(data))
   }
 
-  document.querySelectorAll('[hashshare]').forEach(el => {
+  document.querySelectorAll('[hash-share]').forEach(el => {
     // If this is an input of some form (input, textarea, etc) then
     if ('value' in el) {
       if (data[el.id]) {
