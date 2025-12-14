@@ -14,6 +14,8 @@ The following implements a simple paste-bin like application (see [example.html]
 <textarea id="text" hashshare></textarea>
 ```
 
+This is example can also be [used live](https://jncraton.github.io/hashshare/example.html).
+
 ## Data Storage
 
 ### URL Hash
