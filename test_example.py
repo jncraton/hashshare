@@ -28,4 +28,4 @@ def test_page_content_deflate_missing_curly(page: Page):
 
 def test_page_url(root):
     root.locator('textarea').fill('Hello, world')
-    expect(root).to_have_url(re.compile(".*;q1YqSa0oUbJS8kjNycnXUSjPL8pJUaoFAA=="))
+    expect(root).to_have_url(re.compile(".*#;UypJrShRslLySM3JyddRKM8vyklRAgA="))
