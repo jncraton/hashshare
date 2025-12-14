@@ -12,3 +12,9 @@ The following implements a simple paste-bin like application:
 ```html
 <textarea id="text" hashshare></textarea>
 ```
+
+## Data Storage
+
+### URL Hash
+
+Data is stored in the [URL hash](https://en.wikipedia.org/wiki/URI_fragment).
