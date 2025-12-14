@@ -2,6 +2,7 @@
 
 [![Lint](https://github.com/jncraton/hashshare/actions/workflows/lint.yml/badge.svg)](https://github.com/jncraton/hashshare/actions/workflows/lint.yml)
 [![Test](https://github.com/jncraton/hashshare/actions/workflows/test.yml/badge.svg)](https://github.com/jncraton/hashshare/actions/workflows/test.yml)
+[![Deploy](https://github.com/jncraton/hashshare/actions/workflows/deploy.yml/badge.svg)](https://github.com/jncraton/hashshare/actions/workflows/deploy.yml)
 
 A JS microlibrary to allow simple local-first apps to share state via URL hashes
 
