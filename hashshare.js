@@ -1,4 +1,4 @@
-(() => {
+;(() => {
   // Load inital data if present
   let data = {}
 
@@ -13,7 +13,7 @@
     data[id] = value
     location.hash = btoa(JSON.stringify(data))
   }
-    
+
   document.querySelectorAll('[hashshare-value]').forEach(el => {
     el.value = data[el.id] ?? ''
 
