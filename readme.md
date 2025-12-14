@@ -1,6 +1,7 @@
 # hashshare
 
 [![Lint](https://github.com/jncraton/hashshare/actions/workflows/lint.yml/badge.svg)](https://github.com/jncraton/hashshare/actions/workflows/lint.yml)
+[![Test](https://github.com/jncraton/hashshare/actions/workflows/test.yml/badge.svg)](https://github.com/jncraton/hashshare/actions/workflows/test.yml)
 
 A JS microlibrary to allow simple local-first apps to be shared via URL hashes
 
