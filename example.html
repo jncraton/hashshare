@@ -5,13 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Pastebin Example</title>
-    <style></style>
+    <style>
+      body {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0.5em;
+      }
+
+      textarea {
+        width: 100%;
+        resize: none;
+        height: 50vh;
+        box-sizing: border-box;
+      }
+    </style>
     <script src="hashshare.js" defer></script>
   </head>
 
   <body>
     <main>
-      <textarea id="text" hashshare></textarea>
+      <h1>Pastebin Example</h1>
+      <label>
+        Text to share
+        <textarea id="text" hashshare></textarea>
+      </label>
     </main>
   </body>
 </html>
